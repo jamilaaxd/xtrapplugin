@@ -1,0 +1,185 @@
+# xTrap - yapimci: jamilaxd
+# 1.21.4+
+
+settings:
+  # Trap arazilerinin bulundugu dunya. Bos birakilirsa ilk olusturulan trapin dunyasi kullanilir.
+  trap-world: "trap"
+  # Bir oyuncunun sahip olabilecegi en fazla trap (0 = sinirsiz)
+  max-owned-traps: 3
+  # Bir oyuncunun uye olabilecegi en fazla trap (0 = sinirsiz)
+  max-member-traps: 5
+  # Isim kurallari
+  name:
+    min-length: 3
+    max-length: 16
+    pattern: "^[A-Za-z0-9_]+$"
+  # Satisa cikarilan trapte eski uyeler kalir mi (false = satis aninda uyeler cikar, depo ve can korunur)
+  keep-members-on-sale: false
+  # Satin alininca depo yeni sahibe kalsin mi
+  keep-vault-on-sale: true
+  # Chunk secim cubugu
+  wand-material: BLAZE_ROD
+  # Cubugun baktigi bloğu gorebildigi mesafe (blok)
+  wand-reach: 120.0
+
+economy:
+  # Vault yoksa satin alma komutlari kapanir (admin ucretsiz alabilir)
+  enabled: true
+
+trap-defaults:
+  # /trapadmin create ile kurulan trap bu fiyattan otomatik satisa cikar
+  price: 50000.0
+  health: 1000
+  member-limit: 5
+  vault-rows: 1
+
+# Can 0 olunca trap "cokmus" sayilir, yagmalanmaya acilir.
+# reclaim-seconds icinde /trap reclaim ile odeme yapilmazsa arazi sifirlanir,
+# varsayilan fiyattan tekrar satisa cikar ve bosalir.
+collapse:
+  reclaim-seconds: 3600
+  reclaim-price: 25000.0
+  # Cokmus trapte yabancilar blok kirip koyabilir
+  allow-raid: true
+  # Cokmus trapte korunan bloklar (sandik/varil yine kirilabilir, icerikleri duser)
+  protected-blocks: []
+
+health:
+  # Trap icinde (dusman olmayan) bir oyuncu oldurunce trap puanina eklenir
+  kill-score: 1
+  # Enemy: kurbanin trapinde kesilirse kurban trapinden dusen can
+  enemy-health-taken: 25
+  # Enemy: kurbanin trapinde kesilirse kesenin trabina eklenen can
+  enemy-health-gained: 10
+  # Enemy: trap disinda (asagidaki dunyalarda) kesilince kesenin trabina eklenen can
+  enemy-outside-heal: 5
+  # outside-worlds bos ise sadece trap dunyasi. "*" tum dunyalar.
+  enemy-outside-worlds:
+    - "*"
+  # Can bu degerin ustune cikamaz (0 = sinirsiz, upgrade haric)
+  max-health: 5000
+  # TNT cani dusururken minimum can (0 = tamamen cokebilir)
+  min-from-tnt: 0
+
+tnt:
+  # Bu isimli TNT trap TNT'sidir. /trapadmin tnt ver ile dagitilir, market yoktur.
+  display-name: "&c&lTrap TNT"
+  lore:
+    - "&7Trap arazisinde patlayinca"
+    - "&7kirdigi blok sayisi kadar can gider."
+    - "&8xTrap"
+  # Patlama gucu (vanilla TNT = 4)
+  power: 4.0
+  # Fitil suresi (saniye). xtrap.tnt.fast izni olanlar hizli, digerleri yavas.
+  fuse-seconds: 5
+  fuse-fast-seconds: 3
+  # Kirilan bloklarin geri gelme suresi (saniye). Sandik/varil icerigi korunur.
+  restore-seconds: 5
+  # Sadece trap arazisinde ve trap dunyasinda patlar
+  only-inside-traps: true
+  # Sahipsiz / satistaki / cokmus traplerde can dusurmez, bloklari da kirmaz
+  damage-unowned: false
+  # Savas sirasinda TNT can dusurmez
+  damage-during-siege: false
+
+siege:
+  enabled: true
+  # Savas yalnizca bu saat araliginda ACILABILIR (sunucu yerel saati).
+  # Devam eden savas saat disina cikinca surer.
+  hours:
+    enabled: true
+    start: "18:00"
+    end: "23:00"
+  # Oturum sayisi ve oturum suresi (saniye)
+  sessions: 3
+  session-seconds: 600
+  # Oturumlar arasi bekleme (saniye). Bu surede puan islenmez, can dusmesi normaldir.
+  break-seconds: 120
+  # Beraberlikte savunan kazanir
+  defender-wins-tie: true
+  # Ayni anda bir trap yalnizca bir savasta olabilir
+  # Puanlar
+  points:
+    # Karsi tarafin arazisinde en az 1 oyuncu varken, saniye basina
+    presence-per-second: 1
+    # Karsi tarafin arazisinde karsi trap uyesi oldurmek
+    kill-in-enemy-trap: 5
+    # Trap disinda (asagidaki dunyalarda) taraflarin birbirini oldurmesi
+    kill-outside: 2
+  outside-worlds:
+    - "*"
+  # Towny yukluyse: kasaba savasi tum kasaba traplerini, ulus savasi tum ulus traplerini kapsar.
+  # Towny yoksa ClansPlus (veya asagidaki sinif) yukluyse klanin tum trapleri kapsanir.
+  group:
+    mode: AUTO # AUTO, TOWNY, CLANSPLUS, NONE
+    clansplus-class: "com.cortezromeo.clansplus.api.ClanPlus"
+  # Savas sirasinda trap cani dusmez (TNT ve enemy kesimi savas puanina isler, cana degil)
+  freeze-health: true
+
+upgrades:
+  member-limit:
+    # Her satin alma +1 uye. max = tavan.
+    max: 20
+    price-base: 10000.0
+    price-per-level: 5000.0
+  health:
+    amount: 250
+    price: 15000.0
+  vault:
+    # Her satin alma +1 satir (9 slot). max-rows tavan.
+    max-rows: 6
+    price-base: 20000.0
+    price-per-level: 10000.0
+
+protection:
+  # Bu bloklarla etkilesim UYE rütbesi ister (sandik, kapi, cit, tuzak kapisi...)
+  interact:
+    - CHEST
+    - TRAPPED_CHEST
+    - BARREL
+    - SHULKER_BOX
+    - ENDER_CHEST
+    - FURNACE
+    - BLAST_FURNACE
+    - SMOKER
+    - HOPPER
+    - DROPPER
+    - DISPENSER
+    - BREWING_STAND
+    - ANVIL
+    - CHIPPED_ANVIL
+    - DAMAGED_ANVIL
+    - ENCHANTING_TABLE
+    - BEACON
+    - LECTERN
+    - CRAFTING_TABLE
+    - CARTOGRAPHY_TABLE
+    - SMITHING_TABLE
+    - GRINDSTONE
+    - STONECUTTER
+    - LOOM
+    - BELL
+    - JUKEBOX
+    - NOTE_BLOCK
+    - RESPAWN_ANCHOR
+    - DECORATED_POT
+  # Kapi / cit / tuzak kapisi ayri islenir (tum *DOOR, *FENCE_GATE, *TRAPDOOR)
+  doors: true
+  # Dostlar birbirine vuramaz
+  allies-cannot-pvp: true
+
+hologram:
+  # Sunucuda FancyHolograms varsa hologramlar onunla gosterilir.
+  # Yoksa ayni satirlar Paper TextDisplay olarak spawn edilir.
+  # Satirlar. Placeholderlar calisir. Bos satir icin ""
+  lines:
+    - "&6&l%trapcore_name%"
+    - "&7Sahip: &f%trapcore_owner%"
+    - "&7Can: &c%trapcore_health%&7/&c%trapcore_max_health%"
+    - "&7Uyeler: &f%trapcore_members%"
+    - "&7Durum: &f%trapcore_status%"
+  - "&7Sifirlanmaya: &f%trapcore_reclaim_left%"
+
+storage:
+  # plugins/xTrap/data/ altina yaml
+  autosave-seconds: 120

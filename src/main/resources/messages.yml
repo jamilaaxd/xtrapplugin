@@ -1,0 +1,197 @@
+prefix: "&8[&6xTrap&8] &r"
+
+no-permission: "&cBuna yetkin yok."
+players-only: "&cBu komutu sadece oyuncular kullanabilir."
+unknown-trap: "&cTrap bulunamadi: &f%trap%"
+unknown-player: "&cOyuncu bulunamadi."
+not-in-trap: "&cBir trap arazisinde degilsin."
+not-your-trap: "&cBu trapte yetkin yok."
+economy-missing: "&cEkonomi (Vault) yuklu degil."
+not-enough-money: "&cYetersiz bakiye. Gereken: &f%price%"
+reload: "&aAyarlar yenilendi."
+
+help:
+  - "&6&lTrap Komutlari"
+  - "&e/trap al &7- bulundugun trapi satin al"
+  - "&e/trap liste &7- bos ve satistaki trapler"
+  - "&e/traplerim &7- traplerin"
+  - "&e/trap info [id/isim]"
+  - "&e/trap isimdegistir set [isim] &7| &ereset"
+  - "&e/trap davet [oyuncu] &7| &e/trap davet kabul [isim]"
+  - "&e/trap deny [isim] &7- daveti reddet"
+  - "&e/trap leave [isim] &7- trapten ayril"
+  - "&e/trap yonet [numara]"
+  - "&e/trap sethome &7| &e/trap home [id/isim]"
+  - "&e/trap sat [fiyat] &7- satisa cikar"
+  - "&e/trap dusman [isim] &7| &e/trap dost [isim]"
+  - "&e/trap upgrade uye|can|depo"
+  - "&e/trap pv [sayfa]"
+  - "&e/trap siege [id/isim]"
+  - "&e/trap reclaim &7- cokmus trapi kurtar"
+  - "&e/trap kapat [id/isim] &7- trapi birak"
+  - "&e/trap sifirla [id/isim] &7- araziyi ilk haline dondur (lider)"
+
+admin-help:
+  - "&6&lTrap Admin"
+  - "&e/trapadmin trapolustur [id] &7- cubukla arazi sec"
+  - "&e/trapadmin arazi [id] &7- araziyi yeniden sec"
+  - "&e/trapadmin hologram [id] &7- bulundugun bloga hologram"
+  - "&e/trapadmin hologramsil [id]"
+  - "&e/trapadmin al &7- ucretsiz satin al"
+  - "&e/trapadmin devret [id] [oyuncu]"
+  - "&e/trapadmin sil [id]"
+  - "&e/trapadmin can [id] [miktar]"
+  - "&e/trapadmin upgrade [id] depo|can|uye [miktar]"
+  - "&e/trapadmin tnt [oyuncu] [adet]"
+  - "&e/trapadmin uyeekle [id] [oyuncu] [rutbe]"
+  - "&e/trapadmin uyeat [id] [oyuncu]"
+  - "&e/trapadmin rutbe [id] [oyuncu] [rutbe]"
+  - "&e/trapadmin savasdurdur [id]"
+  - "&e/trapadmin dost [id] [hedef] &7| &edusman [id] [hedef] &7| &ekaldir [id] [hedef]"
+  - "&e/trapadmin sifirla [id]"
+  - "&e/trapadmin reload"
+
+buy:
+  not-for-sale: "&cBu arazi satista degil."
+  already-owned: "&cBu trapin zaten sahibi var."
+  bought: "&a%trap% &7trapini &f%price% &7karsiliginda aldin."
+  cancelled: "&7Satin alma iptal edildi."
+  limit: "&cDaha fazla trap alamazsin."
+
+rename:
+  set: "&aTrap adi &f%name% &aolarak degisti."
+  reset: "&aTrap adi sifirlandi: &f%name%"
+  taken: "&cBu isim kullaniliyor."
+  invalid: "&cGecersiz isim."
+  same: "&cZaten bu isimde."
+
+invite:
+  sent: "&a%player% oyuncusuna davet gonderildi."
+  received: "&e%trap% &7trapinden davet aldin. &f/trap davet kabul %trap%"
+  accepted: "&a%trap% &7trapine katildin. Rutbe: &fUye"
+  joined-notify: "&e%player% &7trape katildi."
+  none: "&cBekleyen davetin yok."
+  expired: "&cBu davetin suresi dolmus veya yok."
+  full: "&cTrap uye limiti dolu."
+  already: "&cZaten bu traptesin."
+  self: "&cKendini davet edemezsin."
+
+deny:
+  done: "&7%trap% daveti reddedildi."
+  none: "&cReddedecek davet yok."
+
+leave:
+  done: "&7%trap% trapinden ayrildin."
+  owner: "&cLider ayrilamaz. Once devret veya trapi kapat."
+  not-member: "&cBu trapin uyesi degilsin."
+
+sell:
+  listed: "&a%trap% &7icin satis fiyati &f%price% &aolarak ayarlandi."
+  bad-price: "&cFiyat 0'dan buyuk olmali."
+
+disband:
+  done: "&7%trap% serbest birakildi ve varsayilan fiyata satisa cikti."
+
+home:
+  set: "&aTrap evi ayarlandi."
+  tp: "&a%trap% evine isinlaniyorsun."
+  missing: "&cBu trapin evi ayarlanmamis."
+  world: "&cEv dunyasi yuklu degil."
+
+enemy:
+  set: "&c%trap% &7artik dusmanin."
+  ally: "&a%trap% &7artik dostun."
+  removed: "&7%trap% ile iliski kaldirildi."
+  self: "&cKendi trapine yapamazsin."
+  same: "&cZaten bu durumda."
+
+upgrade:
+  member: "&aUye limiti &f%value% &aoldu. &7-%price%"
+  health: "&a+%amount% can. Yeni can: &f%value% &7-%price%"
+  vault: "&aDepo &f%value% &asatir oldu. &7-%price%"
+  max: "&cBu yukseltme tavanda."
+
+vault:
+  opened: "&7Depo &f%page%&7/&f%pages% &7acildi."
+  locked: "&cBu depoya yetkin yok."
+
+collapse:
+  collapsed: "&c%trap% coktu! &7%seconds% saniye icinde &f/trap reclaim &7ile kurtarilmazsa sifirlanir."
+  reclaimed: "&a%trap% kurtarildi. &7-%price%"
+  not-collapsed: "&cBu trap cokmus degil."
+  reset: "&c%trap% suresi doldu, arazi sifirlandi ve tekrar satisa cikti."
+
+siege:
+  started: "&6Savas basladi! &e%attacker% &7-> &e%defender%"
+  session: "&6Oturum %current%/%total% &7basladi."
+  break: "&7Oturum arasi. Siradaki oturum &f%saniye% &7saniye sonra."
+  session-win: "&e%winner% &7oturumu kazandi. Skor: &f%attacker%-%defender%"
+  won-attack: "&6%attacker% &e%defender% &6trapini ele gecirdi!"
+  won-defense: "&a%defender% &7trabini korudu."
+  stopped: "&7Savas durduruldu: &f%trap%"
+  hours: "&cSavas sadece &f%start%-%end% &csaatleri arasinda acilir."
+  busy: "&cBu trap zaten savasta."
+  self: "&cKendi trapine savas acamazsin."
+  no-trap: "&cSavas acmak icin bir trapin olmali."
+  not-active: "&cAktif savas yok."
+
+tnt:
+  given: "&a%player% oyuncusuna &f%amount% &aTrap TNT verildi."
+  restored: "&7Trap bloklari yenilendi."
+  no-permission: "&cTrap TNT kullanma iznin yok."
+
+admin:
+  created: "&aTrap &f%id% &aolusturuldu. Cubukla chunk sec, birakinca kaydolur."
+  need-chunks: "&cEn az 1 chunk secmelisin."
+  selection-saved: "&a%id% arazisi kaydedildi. Chunk: &f%count%"
+  hologram: "&aHologram kondu."
+  hologram-removed: "&aHologram silindi."
+  owner-set: "&a%trap% sahibi &f%player% &aoldu."
+  deleted: "&c%trap% silindi."
+  health-set: "&a%trap% cani &f%health% &aolarak ayarlandi."
+  member-added: "&a%player% eklendi."
+  member-removed: "&a%player% cikarildi."
+  rank-set: "&a%player% rutbesi &f%rank%"
+  relation: "&aIliski guncellendi."
+  reset: "&a%trap% arazisi ilk haline dondu."
+  no-baseline: "&cBu trapin kayitli ilk hali yok."
+
+protection:
+  deny-build: "&cBurada blok koyamazsin."
+  deny-break: "&cBurada blok kiramazsin."
+  deny-interact: "&cBununla etkilesime gecemezsin."
+  deny-pvp: "&7Dostuna vuramazsin."
+
+info:
+  header: "&6&l%name% &7(#%id%)"
+  owner: "&7Sahip: &f%owner%"
+  health: "&7Can: &c%health%&7/&c%max%"
+  members: "&7Uyeler (&count%): &f%list%"
+  status: "&7Durum: &f%status%"
+  kills: "&7Oldurme: &f%kills% &7| Olum: &f%deaths%"
+  price: "&7Fiyat: &f%price%"
+
+list:
+  header: "&6Satistaki trapler &7(%count%)"
+  line: "&e#%id% &7%name% &8- &f%price% &8- &7%chunks% chunk"
+  empty: "&7Satista trap yok."
+  gui-title: "&8Traplerim"
+
+manage:
+  title: "&8Yonetim: %name%"
+  members-title: "&8Uyeler: %name%"
+  rank-title: "&8Rutbe: %player%"
+  kicked: "&c%trap% trapinden atildin."
+  rank-changed: "&7Yeni rutben: &f%rank% &7(%trap%)"
+  cannot: "&cBu oyuncunun rutbesini degistiremezsin."
+
+status:
+  owned: "Dolu"
+  sale: "Satista"
+  empty: "Bos"
+  collapsed: "Cokmus"
+  siege: "Savasta"
+
+
+
+

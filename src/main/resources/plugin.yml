@@ -1,0 +1,44 @@
+name: xTrap
+version: '${version}'
+main: dev.jamilaxd.xtrap.XTrapPlugin
+api-version: '1.21'
+author: jamilaxd
+description: Trap arazi, can, savas ve yetki sistemi.
+folia-supported: false
+softdepend:
+  - Vault
+  - PlaceholderAPI
+  - Towny
+  - ClansPlus
+  - FancyHolograms
+commands:
+  trap:
+    description: Trap komutlari
+    usage: /trap yardim
+    aliases: [xtrap]
+  trapadmin:
+    description: Trap yonetici komutlari
+    usage: /trapadmin yardim
+    permission: xtrap.admin
+permissions:
+  xtrap.use:
+    description: Temel trap komutlari
+    default: true
+  xtrap.admin:
+    description: Tum yonetici komutlari
+    default: op
+  xtrap.admin.bypass:
+    description: Trap korumasini atlar
+    default: op
+  xtrap.admin.free:
+    description: Ucretsiz trap alir
+    default: op
+  xtrap.siege:
+    description: Savas acabilir
+    default: true
+  xtrap.tnt:
+    description: Trap TNT kullanabilir
+    default: true
+  xtrap.tnt.fast:
+    description: Trap TNT fitili 3 saniye olur
+    default: false
